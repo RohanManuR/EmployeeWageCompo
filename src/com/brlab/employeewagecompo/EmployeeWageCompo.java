@@ -47,6 +47,15 @@ public class EmployeeWageCompo {
                         System.out.println("Daily Employee Wage : " + dailyWage);
                         wagePerMonth = numberOfDayPerMonth * dailyWage;
                         System.out.println("Wage for a month : " + wagePerMonth);
+
+                        int totalDays = 0, totalHours = 0, totalWageCond = 0;
+                        while (totalDays < 20 && totalHours < 100) {
+                            totalDays++;
+                            int hours = 8;
+                            totalHours += hours;
+                            totalWageCond += wagePerHour * hours;
+                        }
+                        System.out.println("Total Wage (Cond): " + totalWageCond);
                     }
                     break;
                     case 1: {
