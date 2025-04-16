@@ -11,6 +11,7 @@ public class EmployeeWageCompo {
         int dailyWage = 0;
         int wagePerHour = 20;
         int fullDayhr = 8;
+        int partTimeHr = 8;
         int employeeType = 0;
 
             Scanner input = new Scanner(System.in);
@@ -32,13 +33,19 @@ public class EmployeeWageCompo {
             System.out.println("Employee is Absent,.......");
         else if (attendence == 1) {
             System.out.println("Employee is Present,......");
-//            dailyWage = wagePerHour * fullDayhr;
-//            System.out.println("Daily Employee Wage : " + dailyWage);
             System.out.println("Enter the Employee type : \n0 - Full time\n1 - Part time" );
             employeeType = input.nextInt();
-            if(employeeType == 0)
+            if(employeeType == 0) {
                 System.out.println("Employee is Full time");
-            else System.out.println("Employee is part time");
+                dailyWage = wagePerHour * fullDayhr;
+                System.out.println("Daily Employee Wage : " + dailyWage);
+            }
+            else
+            {
+                System.out.println("Employee is part time");
+                dailyWage = wagePerHour * partTimeHr;
+            System.out.println("Daily Employee Wage : " + dailyWage);
+            }
         }
         else System.out.println("Sorry invalid number,....");
     }
