@@ -4,73 +4,30 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class EmployeeWageCompo {
+    static final int WAGE_PER_HOUR = 20;
+    static final int MAX_DAYS = 20;
+    static final int MAX_HOURS = 100;
+
+    public static void computeWage() {
+        int totalWage = 0, totalHours = 0, totalDays = 0;
+
+        while (totalDays < MAX_DAYS && totalHours < MAX_HOURS) {
+            totalDays++;
+            int empType = (int)(Math.random() * 3);
+            int hours = switch (empType) {
+                case 1 -> 8;
+                case 2 -> 4;
+                default -> 0;
+            };
+            totalHours += hours;
+            totalWage += hours * WAGE_PER_HOUR;
+        }
+
+        System.out.println("Total Wage using Class Method: " + totalWage);
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation Program on Master Branch");
-
-        int attendence = 0;
-        int dailyWage = 0;
-        int wagePerHour = 20;
-        int fullDayhr = 8;
-        int partTimeHr = 8;
-        int employeeType = 0;
-        int wagePerMonth =0;
-        int numberOfDayPerMonth = 20;
-
-            Scanner input = new Scanner(System.in);
-            System.out.println("Enter the attendence status :\n0 - Absent\n1 - Present");
-            attendence = input.nextInt();
-
-
-        /*
-             Random random = new Random();
-             attendence = random.nextInt(2);
-            // System.out.println("Random number : "+attendence);
-        */
-        /*              OR
-              attendence = (int)(Math.random() * 2);
-              System.out.println("Random number : "+attendence);
-        */
-
-
-        switch (attendence) {
-            case 0:
-                System.out.println("Employee is Absent,.......");
-                break;
-            case 1: {
-                System.out.println("Employee is Present,......");
-                System.out.println("Enter the Employee type : \n0 - Full time\n1 - Part time");
-                employeeType = input.nextInt();
-                switch (employeeType) {
-                    case 0: {
-                        System.out.println("Employee is Full time");
-                        dailyWage = wagePerHour * fullDayhr;
-                        System.out.println("Daily Employee Wage : " + dailyWage);
-                        wagePerMonth = numberOfDayPerMonth * dailyWage;
-                        System.out.println("Wage for a month : " + wagePerMonth);
-
-                        int totalDays = 0, totalHours = 0, totalWageCond = 0;
-                        while (totalDays < 20 && totalHours < 100) {
-                            totalDays++;
-                            int hours = 8;
-                            totalHours += hours;
-                            totalWageCond += wagePerHour * hours;
-                        }
-                        System.out.println("Total Wage (Cond): " + totalWageCond);
-                    }
-                    break;
-                    case 1: {
-                        System.out.println("Employee is part time");
-                        dailyWage = wagePerHour * partTimeHr;
-                        System.out.println("Daily Employee Wage : " + dailyWage);
-                        wagePerMonth = numberOfDayPerMonth * dailyWage;
-                        System.out.println("Wage for a month : " + wagePerMonth);
-                    }
-                    break;
-                }
-            }
-            break;
-
-
-        }
+        computeWage();
     }
 }
