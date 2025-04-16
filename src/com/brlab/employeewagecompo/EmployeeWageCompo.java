@@ -46,7 +46,33 @@ public class EmployeeWageCompo {
                 dailyWage = wagePerHour * partTimeHr;
             System.out.println("Daily Employee Wage : " + dailyWage);
             }
+
+        switch (attendence) {
+            case 0:
+                System.out.println("Employee is Absent,.......");
+                break;
+            case 1: {
+                System.out.println("Employee is Present,......");
+                System.out.println("Enter the Employee type : \n0 - Full time\n1 - Part time");
+                employeeType = input.nextInt();
+                switch (employeeType) {
+                    case 0: {
+                        System.out.println("Employee is Full time");
+                        dailyWage = wagePerHour * fullDayhr;
+                        System.out.println("Daily Employee Wage : " + dailyWage);
+                    }
+                    break;
+                    case 1: {
+                        System.out.println("Employee is part time");
+                        dailyWage = wagePerHour * partTimeHr;
+                        System.out.println("Daily Employee Wage : " + dailyWage);
+                    }
+                    break;
+                }
+            }
+            break;
+
         }
-        else System.out.println("Sorry invalid number,....");
+        }
     }
 }
