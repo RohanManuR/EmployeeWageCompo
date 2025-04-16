@@ -13,6 +13,8 @@ public class EmployeeWageCompo {
         int fullDayhr = 8;
         int partTimeHr = 8;
         int employeeType = 0;
+        int wagePerMonth =0;
+        int numberOfDayPerMonth = 20;
 
             Scanner input = new Scanner(System.in);
             System.out.println("Enter the attendence status :\n0 - Absent\n1 - Present");
@@ -29,23 +31,6 @@ public class EmployeeWageCompo {
               System.out.println("Random number : "+attendence);
         */
 
-        if(attendence == 0)
-            System.out.println("Employee is Absent,.......");
-        else if (attendence == 1) {
-            System.out.println("Employee is Present,......");
-            System.out.println("Enter the Employee type : \n0 - Full time\n1 - Part time" );
-            employeeType = input.nextInt();
-            if(employeeType == 0) {
-                System.out.println("Employee is Full time");
-                dailyWage = wagePerHour * fullDayhr;
-                System.out.println("Daily Employee Wage : " + dailyWage);
-            }
-            else
-            {
-                System.out.println("Employee is part time");
-                dailyWage = wagePerHour * partTimeHr;
-            System.out.println("Daily Employee Wage : " + dailyWage);
-            }
 
         switch (attendence) {
             case 0:
@@ -60,19 +45,23 @@ public class EmployeeWageCompo {
                         System.out.println("Employee is Full time");
                         dailyWage = wagePerHour * fullDayhr;
                         System.out.println("Daily Employee Wage : " + dailyWage);
+                        wagePerMonth = numberOfDayPerMonth * dailyWage;
+                        System.out.println("Wage for a month : " + wagePerMonth);
                     }
                     break;
                     case 1: {
                         System.out.println("Employee is part time");
                         dailyWage = wagePerHour * partTimeHr;
                         System.out.println("Daily Employee Wage : " + dailyWage);
+                        wagePerMonth = numberOfDayPerMonth * dailyWage;
+                        System.out.println("Wage for a month : " + wagePerMonth);
                     }
                     break;
                 }
             }
             break;
 
-        }
+
         }
     }
 }
