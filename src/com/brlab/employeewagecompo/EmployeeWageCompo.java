@@ -29,5 +29,12 @@ public class EmployeeWageCompo {
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation Program on Master Branch");
         computeWage();
+        computeCompanyWage(200,25);
+    }
+
+    public static void computeCompanyWage(int wagePerHr,int numberOfDays ) {
+        int totalHr = 8;
+        int wage = wagePerHr * totalHr *numberOfDays;
+        System.out.println("Total Wage  " + wage);
     }
 }
