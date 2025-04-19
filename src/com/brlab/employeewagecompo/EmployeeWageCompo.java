@@ -8,7 +8,7 @@ public class EmployeeWageCompo {
     static final int MAX_DAYS = 20;
     static final int MAX_HOURS = 100;
 
-
+    static CompanyEmpWage[] totalWage = new CompanyEmpWage[5];
     public static void computeWage() {
         int totalWage = 0, totalHours = 0, totalDays = 0;
 
@@ -32,10 +32,15 @@ public class EmployeeWageCompo {
         computeWage();
 
         CompanyEmpWage companyEmpWage = new CompanyEmpWage();
-        companyEmpWage.computeCompanyWage(200,25);
+       companyEmpWage.computeCompanyWage(200,25);
+       for (int i=0;i<totalWage.length;i++)
+       {
+           if(totalWage[i]==null) {
+               totalWage[i] = companyEmpWage;
+               break;
+           }
+       }
     }
-
-
 }
 
 class CompanyEmpWage
