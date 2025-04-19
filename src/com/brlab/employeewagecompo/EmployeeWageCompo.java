@@ -8,7 +8,7 @@ public class EmployeeWageCompo {
     static final int MAX_DAYS = 20;
     static final int MAX_HOURS = 100;
 
-    int totalWage;
+
     public static void computeWage() {
         int totalWage = 0, totalHours = 0, totalDays = 0;
 
@@ -30,10 +30,17 @@ public class EmployeeWageCompo {
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation Program on Master Branch");
         computeWage();
-        EmployeeWageCompo employeeWageCompo = new EmployeeWageCompo();
-        employeeWageCompo.computeCompanyWage(200,25);
+
+        CompanyEmpWage companyEmpWage = new CompanyEmpWage();
+        companyEmpWage.computeCompanyWage(200,25);
     }
 
+
+}
+
+class CompanyEmpWage
+{
+    int totalWage;
     public  void computeCompanyWage(int wagePerHr,int numberOfDays ) {
         int totalHr = 8;
         this.totalWage = wagePerHr * totalHr *numberOfDays;
